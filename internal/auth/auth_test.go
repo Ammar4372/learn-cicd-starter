@@ -28,7 +28,7 @@ func TestApiKey(t *testing.T) {
 		if err != nil && err.Error() != c.expected {
 			t.Error(err)
 		}
-		if key != c.expected {
+		if err == nil && key != c.expected {
 			t.Errorf("expected: %s, actual: %s", c.expected, key)
 		}
 	}
