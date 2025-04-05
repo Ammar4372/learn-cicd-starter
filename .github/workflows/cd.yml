@@ -7,10 +7,6 @@ on:
 
 jobs:
   deploy:
-    permissions:
-      content: 'read'
-      write: 'write'
-
     name: Deploy 
     runs-on: ubuntu-latest
 
@@ -27,6 +23,7 @@ jobs:
         uses: 'google-github-actions/setup-gcloud@v2'
         with:
           version: '>= 517.0.0'
+
       - name: 'Use gcloud CLI'
         run: 'gcloud info'
 
