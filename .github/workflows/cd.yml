@@ -32,5 +32,8 @@ jobs:
         with:
           version: '>= 517.0.0'
 
-      - name: 'Upload image'
+      - name: 'Upload docker image'
         run: 'gcloud builds submit --tag us-central1-docker.pkg.dev/notely-455512/notely-ar-repo/notely:latest .'
+
+      - name: Deploy to Cloud Run
+        run: 'gcloud run deploy notely-00001-7jf --image  us-central1-docker.pkg.dev/notely-455512/notely-ar-repo/notely:latest --region us-central1  --allow-unauthenticated --project notely-45512 --max-instances=4'
